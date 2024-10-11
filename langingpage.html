@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển hướng ứng dụng</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Kiểm tra iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/app/idYOUR_APP_ID";
+            }
+            // Kiểm tra Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
+            }
+            // Nếu không xác định được, có thể chuyển hướng đến trang web hoặc thông báo
+            else {
+                window.location.href = "https://yourwebsite.com";
+            }
+        });
+    </script>
+</head>
+<body>
+    <p>Đang chuyển hướng...</p>
+</body>
+</html>
